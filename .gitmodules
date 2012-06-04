@@ -1,0 +1,3 @@
+[submodule "packages/weibo"]
+	path = packages/weibo
+	url = git@github.com:yanwuhuan/weibo.emacs.git

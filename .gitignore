@@ -1,4 +1,8 @@
 /content/
 /packages/emacs-w3m/
 /packages/w3mbin/
+/packages/python-mode-6.0.8/
+/ÀÏ¾ÉµÄ/
+
 *~
+*.elc

@@ -1,20 +1,28 @@
-;; ½«Èí¼ş°üËùÔÚµÄÂ·¾¶¼Óµ½ EMACS µÄ load-path
+;;; emacs.el ---
+;; -*- coding: utf-8 -*-
+;; -*- mode: Emacs-Lisp -*-
+;; Time-stamp: <2012-07-06 14:46:17 Tanis Zhang>
+
+
+;; å°†è½¯ä»¶åŒ…æ‰€åœ¨çš„è·¯å¾„åŠ åˆ° EMACS çš„ load-path
 (add-to-list 'load-path "~/emacs/packages/others")
 
 (load "gnuserv")
 (gnuserv-start)
-;;ÉèÖÃÓĞÓÃµÄ¸öÈËĞÅÏ¢,ÕâÔÚºÜ¶àµØ·½ÓĞÓÃ¡£
+;;è®¾ç½®æœ‰ç”¨çš„ä¸ªäººä¿¡æ¯,è¿™åœ¨å¾ˆå¤šåœ°æ–¹æœ‰ç”¨ã€‚
 (setq user-full-name "Zhang Tanis")
 (setq user-mail-address "tanis.zhang@gmail.com")
 
-;; ÉèÖÃÊ±¼ä´Á£¬±êÊ¶³ö×îºóÒ»´Î±£´æÎÄ¼şµÄÊ±¼ä¡£
+;; è®¾ç½®æ—¶é—´æˆ³ï¼Œæ ‡è¯†å‡ºæœ€åä¸€æ¬¡ä¿å­˜æ–‡ä»¶çš„æ—¶é—´ã€‚
 (setq time-stamp-active t)
 (setq time-stamp-warn-inactive t)
-(setq time-stamp-format "%:y-%02m-%02d %3a %02H:%02M:%02S Tanis")
+(add-hook 'write-file-hooks 'time-stamp)
+(setq time-stamp-format "%:y-%02m-%02d %02H:%02M:%02S Tanis Zhang")
 
 
-;============================ ÓïÑÔ»·¾³×Ö·û¼¯ÉèÖÃ =================================
-;;ÕâÒ»²¿·İÖ÷ÒªÓÃÔÚlinux »·¾³ÏÂ£¬windowsÏÂÃ»Ê²Ã´×÷ÓÃ
+
+;============================ è¯­è¨€ç¯å¢ƒå­—ç¬¦é›†è®¾ç½® =================================
+;;è¿™ä¸€éƒ¨ä»½ä¸»è¦ç”¨åœ¨linux ç¯å¢ƒä¸‹ï¼Œwindowsä¸‹æ²¡ä»€ä¹ˆä½œç”¨
 ;; (set-language-environment 'Chinese-GB)
 ;; (set-keyboard-coding-system 'utf-8)
 ;; (set-clipboard-coding-system 'utf-8)
@@ -26,10 +34,22 @@
 ;; (setq default-process-coding-system '(utf-8 . utf-8))
 ;; (setq-default pathname-coding-system 'utf-8)
 ;; (set-file-name-coding-system 'utf-8)
-;; (setq ansi-color-for-comint-mode t) ;;´¦Àíshell-modeÂÒÂë,ºÃÏñÃ»×÷ÓÃ
-;=========================== ÓïÑÔ»·¾³×Ö·û¼¯ÉèÖÃ½áÊø ===============================
+;; (setq ansi-color-for-comint-mode t) ;;å¤„ç†shell-modeä¹±ç ,å¥½åƒæ²¡ä½œç”¨
 
-;============================ MS Windows»·¾³ÏÂ×ÖÌåÉèÖÃ ===========================
+;;;; Windows ä¸‹
+(set-language-environment 'Chinese-GB18030)
+;;(setq current-language-environment "UTF-8")
+;;(setq locale-coding-system 'utf-8)
+;;(set-terminal-coding-system 'utf-8)
+;;(set-keyboard-coding-system 'utf-8)
+;;(set-selection-coding-system 'utf-8)
+;;(prefer-coding-system 'utf-8)
+
+;=========================== è¯­è¨€ç¯å¢ƒå­—ç¬¦é›†è®¾ç½®ç»“æŸ ===============================
+
+
+
+;============================ MS Windowsç¯å¢ƒä¸‹å­—ä½“è®¾ç½® ===========================
 (setq default-frame-alist
 (append
   '((font . "fontset-chinese")) default-frame-alist))
@@ -39,25 +59,25 @@
   "-outline-Courier New-normal-r-normal-normal-13-97-96-96-c-*-fontset-chinese")
 (set-fontset-font
  "fontset-default" nil
- "-outline-ĞÂËÎÌå-normal-r-normal-normal-14-*-96-96-c-*-iso10646-1" nil 'prepend)
+ "-outline-æ–°å®‹ä½“-normal-r-normal-normal-14-*-96-96-c-*-iso10646-1" nil 'prepend)
 (set-fontset-font
  "fontset-chinese" 'kana
- "-outline-ĞÂËÎÌå-normal-r-normal-normal-14-*-96-96-c-*-iso10646-1" nil 'prepend)
+ "-outline-æ–°å®‹ä½“-normal-r-normal-normal-14-*-96-96-c-*-iso10646-1" nil 'prepend)
 (set-fontset-font
  "fontset-chinese" 'han
- "-outline-ĞÂËÎÌå-normal-r-normal-normal-14-*-96-96-c-*-iso10646-1" nil 'prepend)
+ "-outline-æ–°å®‹ä½“-normal-r-normal-normal-14-*-96-96-c-*-iso10646-1" nil 'prepend)
 (set-fontset-font
  "fontset-chinese" 'cjk-misc
- "-outline-ĞÂËÎÌå-normal-r-normal-normal-14-*-96-96-c-*-iso10646-1" nil 'prepend)
+ "-outline-æ–°å®‹ä½“-normal-r-normal-normal-14-*-96-96-c-*-iso10646-1" nil 'prepend)
 (set-fontset-font
  "fontset-chinese" 'symbol
- "-outline-ĞÂËÎÌå-normal-r-normal-normal-14-*-96-96-c-*-iso10646-1" nil 'prepend)
+ "-outline-æ–°å®‹ä½“-normal-r-normal-normal-14-*-96-96-c-*-iso10646-1" nil 'prepend)
 (set-default-font "fontset-chinese")
 
-;===========================MS Windows»·¾³ÏÂ×ÖÌåÉèÖÃ½áÊø =========================
+;===========================MS Windowsç¯å¢ƒä¸‹å­—ä½“è®¾ç½®ç»“æŸ =========================
 
 
-;============================ Linux»·¾³ÏÂ×ÖÌåÉèÖÃ =================================
+;============================ Linuxç¯å¢ƒä¸‹å­—ä½“è®¾ç½® =================================
 
 ;; (create-fontset-from-fontset-spec
 ;; "-*-courier-medium-r-normal-*-14-*-*-*-*-*-fontset-courier")
@@ -79,146 +99,131 @@
 ;; "fontset-courier" 'cjk-misc
 ;; "-*-simsun-*-*-*-*-14-*-*-*-*-*-gbk-0" nil 'prepend)
 
-;============================ Linux»·¾³ÏÂ×ÖÌåÉèÖÃ½áÊø ==============================
+;============================ Linuxç¯å¢ƒä¸‹å­—ä½“è®¾ç½®ç»“æŸ ==============================
 
-;;;;;;;;;;;;;;;;;;;;ÓïÑÔ»·¾³×ÖÌåÉèÖÃ½áÊø;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;è¯­è¨€ç¯å¢ƒå­—ä½“è®¾ç½®ç»“æŸ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
 
-;;½â¾öÖĞÓ¢ÎÄ»ìÅÅ²»ÄÜÕıÈ·fillµÄÎÊÌâ,ºÃÏñÃ»Ê²Ã´ÓÃ
+;;è§£å†³ä¸­è‹±æ–‡æ··æ’ä¸èƒ½æ­£ç¡®fillçš„é—®é¢˜,å¥½åƒæ²¡ä»€ä¹ˆç”¨
 ;; (put-charset-property 'chinese-cns11643-5 'nospace-between-words t)
 ;; (put-charset-property 'chinese-cns11643-6 'nospace-between-words t)
 ;; (put-charset-property 'chinese-cns11643-7 'nospace-between-words t)
 
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;  ÉèÖÃ´°¿Ú½çÃæ ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;  è®¾ç½®çª—å£ç•Œé¢ ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;È¡Ïû¹ö¶¯À¸
+;;å–æ¶ˆæ»šåŠ¨æ 
 (set-scroll-bar-mode nil)
 
-;;ÉèÖÃ¹ö¶¯À¸ÔÚ´°¿ÚÓÒ²à£¬¶øÄ¬ÈÏÊÇÔÚ×ó²à
+;;è®¾ç½®æ»šåŠ¨æ åœ¨çª—å£å³ä¾§ï¼Œè€Œé»˜è®¤æ˜¯åœ¨å·¦ä¾§
 ;;(customize-set-variable 'scroll-bar-mode 'right))
 
-;;È¡Ïû¹¤¾ßÀ¸
+;;å–æ¶ˆå·¥å…·æ 
 (tool-bar-mode nil)
 
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;  ÉèÖÃ½çÃæ½áÊø  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;  è®¾ç½®ç•Œé¢ç»“æŸ  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;   ÏÔÊ¾Ê±¼äÉèÖÃ   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(display-time-mode 1);;ÆôÓÃÊ±¼äÏÔÊ¾ÉèÖÃ£¬ÔÚminibufferÉÏÃæµÄÄÇ¸ö¸ÜÉÏ
-(setq display-time-24hr-format t);;Ê±¼äÊ¹ÓÃ24Ğ¡Ê±ÖÆ
-(setq display-time-day-and-date t);;Ê±¼äÏÔÊ¾°üÀ¨ÈÕÆÚºÍ¾ßÌåÊ±¼ä
-(setq display-time-use-mail-icon t);;Ê±¼äÀ¸ÅÔ±ßÆôÓÃÓÊ¼şÉèÖÃ
-(setq display-time-interval 10);;Ê±¼äµÄ±ä»¯ÆµÂÊ£¬µ¥Î»¶àÉÙÀ´×Å£¿
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;   æ˜¾ç¤ºæ—¶é—´è®¾ç½®   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(display-time-mode 1);;å¯ç”¨æ—¶é—´æ˜¾ç¤ºè®¾ç½®ï¼Œåœ¨minibufferä¸Šé¢çš„é‚£ä¸ªæ ä¸Š
+(setq display-time-24hr-format t);;æ—¶é—´ä½¿ç”¨24å°æ—¶åˆ¶
+(setq display-time-day-and-date t);;æ—¶é—´æ˜¾ç¤ºåŒ…æ‹¬æ—¥æœŸå’Œå…·ä½“æ—¶é—´
+(setq display-time-use-mail-icon t);;æ—¶é—´æ æ—è¾¹å¯ç”¨é‚®ä»¶è®¾ç½®
+(setq display-time-interval 10);;æ—¶é—´çš„å˜åŒ–é¢‘ç‡ï¼Œå•ä½å¤šå°‘æ¥ç€ï¼Ÿ
  
-;;;;;;;;;;;;;;;;;;;;;;;;;;;  ÏÔÊ¾Ê±¼äÉèÖÃ½áÊø  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;  æ˜¾ç¤ºæ—¶é—´è®¾ç½®ç»“æŸ  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;å®šåˆ¶æ“ä½œä¹ æƒ¯;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;¶¨ÖÆ²Ù×÷Ï°¹ß;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-;;¹Ø±Õ·³ÈËµÄ³ö´íÊ±µÄÌáÊ¾Éù
+;;å…³é—­çƒ¦äººçš„å‡ºé”™æ—¶çš„æç¤ºå£°
 (setq visible-bell t)
-;;¹Ø±ÕemacsÆô¶¯Ê±µÄ»­Ãæ
+;;å…³é—­emacså¯åŠ¨æ—¶çš„ç”»é¢
 (setq inhibit-startup-message t)
 
-;; ¸Ä±ä Emacs ¹ÌÖ´µÄÒªÄã»Ø´ğ yes µÄĞĞÎª¡£°´ y »ò¿Õ¸ñ¼ü±íÊ¾ yes£¬n ±íÊ¾ no¡£
+;; æ”¹å˜ Emacs å›ºæ‰§çš„è¦ä½ å›ç­” yes çš„è¡Œä¸ºã€‚æŒ‰ y æˆ–ç©ºæ ¼é”®è¡¨ç¤º yesï¼Œn è¡¨ç¤º noã€‚
 (fset 'yes-or-no-p 'y-or-n-p)
 
-;;ÏÔÊ¾ĞĞÁĞºÅ
+;;æ˜¾ç¤ºè¡Œåˆ—å·
 (setq column-number-mode t)
 (setq line-number-mode t)
 
-;;²»ÒªÔÚÊó±êµã»÷µÄÄÇ¸öµØ·½²åÈë¼ôÌù°åÄÚÈİ¡£ÎÒ²»Ï²»¶ÄÇÑù£¬¾­³£°ÑÎÒµÄÎÄµµ¸ãµÄÒ»ÍÅÔã¡£ÎÒ¾õµÃÏÈÓÃ¹â±ê¶¨Î»£¬È»ºóÊó±êÖĞ¼üµã»÷ÒªºÃµÄ¶à¡£²»¹ÜÄãµÄ¹â±êÔÚÎÄµµµÄÄÇ¸öÎ»ÖÃ£¬»òÊÇÔÚ minibuffer£¬Êó±êÖĞ¼üÒ»µã»÷£¬X selection µÄÄÚÈİ¾Í±»²åÈëµ½ÄÇ¸öÎ»ÖÃ¡£
+;;ä¸è¦åœ¨é¼ æ ‡ç‚¹å‡»çš„é‚£ä¸ªåœ°æ–¹æ’å…¥å‰ªè´´æ¿å†…å®¹ã€‚æˆ‘ä¸å–œæ¬¢é‚£æ ·ï¼Œç»å¸¸æŠŠæˆ‘çš„æ–‡æ¡£æçš„ä¸€å›¢ç³Ÿã€‚æˆ‘è§‰å¾—å…ˆç”¨å…‰æ ‡å®šä½ï¼Œç„¶åé¼ æ ‡ä¸­é”®ç‚¹å‡»è¦å¥½çš„å¤šã€‚ä¸ç®¡ä½ çš„å…‰æ ‡åœ¨æ–‡æ¡£çš„é‚£ä¸ªä½ç½®ï¼Œæˆ–æ˜¯åœ¨ minibufferï¼Œé¼ æ ‡ä¸­é”®ä¸€ç‚¹å‡»ï¼ŒX selection çš„å†…å®¹å°±è¢«æ’å…¥åˆ°é‚£ä¸ªä½ç½®ã€‚
 (setq mouse-yank-at-point t)
 
-;;ÉèÖÃÕ³Ìù»º³åÌõÄ¿ÊıÁ¿.ÓÃÒ»¸öºÜ´óµÄkill ring(×î¶àµÄ¼ÇÂ¼¸öÊı). ÕâÑù·ÀÖ¹ÎÒ²»Ğ¡ĞÄÉ¾µôÖØÒªµÄ¶«Î÷
+;;è®¾ç½®ç²˜è´´ç¼“å†²æ¡ç›®æ•°é‡.ç”¨ä¸€ä¸ªå¾ˆå¤§çš„kill ring(æœ€å¤šçš„è®°å½•ä¸ªæ•°). è¿™æ ·é˜²æ­¢æˆ‘ä¸å°å¿ƒåˆ æ‰é‡è¦çš„ä¸œè¥¿
 (setq kill-ring-max 200)
 
 ; Autofill in all modes;;
 (setq-default auto-fill-function 'do-auto-fill)
-;;°Ñ fill-column ÉèÎª 60. ÕâÑùµÄÎÄ×Ö¸üºÃ¶Á
-(setq default-fill-column 120)
 
-;;²»ÓÃ TAB ×Ö·ûÀ´indent, Õâ»áÒıÆğºÜ¶àÆæ¹ÖµÄ´íÎó¡£±à¼­ Makefile µÄÊ±ºòÒ²²»ÓÃµ£ĞÄ£¬ÒòÎª makefile-mode »á°Ñ TAB ¼üÉèÖÃ³ÉÕæÕıµÄ TAB ×Ö·û£¬²¢ÇÒ¼ÓÁÁÏÔÊ¾µÄ¡£
+;;æŠŠ fill-column è®¾ä¸º 80
+(setq default-fill-column 80)
+
+;;ä¸ç”¨ TAB å­—ç¬¦æ¥indent, è¿™ä¼šå¼•èµ·å¾ˆå¤šå¥‡æ€ªçš„é”™è¯¯ã€‚ç¼–è¾‘ Makefile çš„æ—¶å€™ä¹Ÿä¸ç”¨æ‹…å¿ƒï¼Œå› ä¸º makefile-mode ä¼šæŠŠ TAB é”®è®¾ç½®æˆçœŸæ­£çš„ TAB å­—ç¬¦ï¼Œå¹¶ä¸”åŠ äº®æ˜¾ç¤ºçš„ã€‚
 (setq-default indent-tabs-mode nil)
 (setq default-tab-width 4)
 (setq tab-stop-list ())
 
-;;¿ÉÒÔµİ¹éµÄÊ¹ÓÃ minibuffer
+;;å¯ä»¥é€’å½’çš„ä½¿ç”¨ minibuffer
 (setq enable-recursive-minibuffers t)
 
-;;ÉèÖÃÈ±Ê¡Ö÷Ä£Ê½ÊÇtext£¬,²¢½øÈëauto-fill´ÎÄ£Ê½.¶ø²»ÊÇ»ù±¾Ä£Ê½fundamental-mode
+;;è®¾ç½®ç¼ºçœä¸»æ¨¡å¼æ˜¯textï¼Œ,å¹¶è¿›å…¥auto-fillæ¬¡æ¨¡å¼.è€Œä¸æ˜¯åŸºæœ¬æ¨¡å¼fundamental-mode
 (setq default-major-mode 'text-mode)
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
 
-;;À¨ºÅÆ¥ÅäÊ±¿ÉÒÔ¸ßÁÁÏÔÊ¾ÁíÍâÒ»±ßµÄÀ¨ºÅ£¬µ«¹â±ê²»»á·³ÈËµÄÌøµ½ÁíÒ»¸öÀ¨ºÅ´¦¡£
-(setq show-paren-mode t) ;;´ò¿ªÀ¨ºÅÆ¥ÅäÏÔÊ¾Ä£Ê½
+;;æ‹¬å·åŒ¹é…æ—¶å¯ä»¥é«˜äº®æ˜¾ç¤ºå¦å¤–ä¸€è¾¹çš„æ‹¬å·ï¼Œä½†å…‰æ ‡ä¸ä¼šçƒ¦äººçš„è·³åˆ°å¦ä¸€ä¸ªæ‹¬å·å¤„ã€‚
+(setq show-paren-mode t) ;;æ‰“å¼€æ‹¬å·åŒ¹é…æ˜¾ç¤ºæ¨¡å¼
 (setq show-paren-style 'parenthesis)
 
-;;ÔÚ±êÌâÀ¸ÏÔÊ¾bufferµÄÃû×Ö£¬¶ø²»ÊÇ emacs@wangyin.com ÕâÑùÃ»ÓÃµÄÌáÊ¾¡£
-(setq frame-title-format "emacs@%b")
+;;åœ¨æ ‡é¢˜æ æ˜¾ç¤ºbufferçš„åå­—ï¼Œè€Œä¸æ˜¯ emacs@wangyin.com è¿™æ ·æ²¡ç”¨çš„æç¤ºã€‚
+(setq frame-title-format "%b@emacs")
 
-;;ÈÃ Emacs ¿ÉÒÔÖ±½Ó´ò¿ªºÍÏÔÊ¾Í¼Æ¬¡£
+;;è®© Emacs å¯ä»¥ç›´æ¥æ‰“å¼€å’Œæ˜¾ç¤ºå›¾ç‰‡ã€‚
 (setq auto-image-file-mode t)
 
-;´ò¿ªÑ¹ËõÎÄ¼şÊ±×Ô¶¯½âÑ¹Ëõ¡£
+;æ‰“å¼€å‹ç¼©æ–‡ä»¶æ—¶è‡ªåŠ¨è§£å‹ç¼©ã€‚
 ;(auto-compression-mode 1)  
 
-;;½øĞĞÓï·¨¼ÓÁÁ¡£
+;;è¿›è¡Œè¯­æ³•åŠ äº®ã€‚
 (setq global-font-lock-mode t)
 
-;; ²»Éú³ÉÁÙÊ±ÎÄ¼ş
+;; ä¸ç”Ÿæˆä¸´æ—¶æ–‡ä»¶
 (setq-default make-backup-files nil)
 
-;;ÔÊĞíemacsºÍÍâ²¿ÆäËû³ÌĞòµÄÕ³Ìù
+;;å…è®¸emacså’Œå¤–éƒ¨å…¶ä»–ç¨‹åºçš„ç²˜è´´
 (setq x-select-enable-clipboard t)
 
-;;Ê¹ÓÃÊó±êÖĞ¼ü¿ÉÒÔÕ³Ìù
+;;ä½¿ç”¨é¼ æ ‡ä¸­é”®å¯ä»¥ç²˜è´´
 (setq mouse-yank-at-point t)
 
-;; ×Ô¶¯µÄÔÚÎÄ¼şÄ©Ôö¼ÓÒ»ĞÂĞĞ
+;; è‡ªåŠ¨çš„åœ¨æ–‡ä»¶æœ«å¢åŠ ä¸€æ–°è¡Œ
 (setq require-final-newline t)
 
-;; µ±ä¯ÀÀ man page Ê±£¬Ö±½ÓÌø×ªµ½ man buffer¡£
+;; å½“æµè§ˆ man page æ—¶ï¼Œç›´æ¥è·³è½¬åˆ° man bufferã€‚
 (setq Man-notify-method 'pushy)
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;¶¨ÖÆ²Ù×÷Ï°¹ß½áÊø;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;å®šåˆ¶æ“ä½œä¹ æƒ¯ç»“æŸ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;; template files in ~/.template
+(require 'template)
+(template-initialize)
+;;; >>>AUTHOR<<< is user-mail-address
+
 
 (load-library "~/emacs/config/muse-init")
 (load-library "~/emacs/config/calendar")
-
+(load-library "~/emacs/config/tabbar-conf")
+(load-library "~/emacs/config/ssh-conf")
+(load-library "~/emacs/config/developer")
+(load-library "~/emacs/config/markdown-conf")
+(load-library "~/emacs/config/python-conf")
 ;; should be last, ensure key-define active by this config
 (load-library "~/emacs/config/keypad")
 
-
-;;; ssh
-(setq tramp-default-method "plink")
-(setq tramp-auto-save-directory "~/.emacs.d/auto-save-list")
-(setq tramp-chunksize 328)
-(setq tramp-default-user "tanis")
-(add-to-list 'backup-directory-alist
-             (cons "." "~/.emacs.d/backups/"))
-(setq tramp-backup-directory-alist backup-directory-alist)
-
-(require 'tramp)
-
-(require 'php-mode)
-(add-hook 'php-mode-hook
-          (function (lambda ()
-                      ;; GNU style
-                      (setq php-indent-level 4
-                            php-continued-statement-offset 4
-                            php-continued-brace-offset 0
-                            php-brace-offset 0
-                            php-brace-imaginary-offset 0
-                            php-label-offset -4
-                            c-set-style "K&R"
-                            ))))
 
 
 ;;; w3m, seems useless
@@ -229,3 +234,11 @@
 ;(setq w3m-command-arguments '("-cookie" "-F"))
 ;(setq w3m-use-cookies t)
 ;(setq w3m-home-page "")     
+
+
+;;; org-mode
+(setq org-hide-leading-stars t)
+(define-key global-map "\C-ca" 'org-agenda)
+(setq org-log-done 'time)
+
+

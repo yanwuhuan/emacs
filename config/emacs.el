@@ -1,7 +1,7 @@
 ;;; emacs.el ---
 ;; -*- coding: utf-8 -*-
 ;; -*- mode: Emacs-Lisp -*-
-;; Time-stamp: <2012-07-06 14:46:17 Tanis Zhang>
+;; Time-stamp: <2012-10-26 16:55:04 Tanis Zhang>
 
 
 ;; 将软件包所在的路径加到 EMACS 的 load-path
@@ -50,29 +50,29 @@
 
 
 ;============================ MS Windows环境下字体设置 ===========================
-(setq default-frame-alist
-(append
-  '((font . "fontset-chinese")) default-frame-alist))
+;;(setq default-frame-alist
+;;(append
+;;  '((font . "fontset-chinese")) default-frame-alist))
 
 
-(create-fontset-from-fontset-spec
-  "-outline-Courier New-normal-r-normal-normal-13-97-96-96-c-*-fontset-chinese")
-(set-fontset-font
- "fontset-default" nil
- "-outline-新宋体-normal-r-normal-normal-14-*-96-96-c-*-iso10646-1" nil 'prepend)
-(set-fontset-font
- "fontset-chinese" 'kana
- "-outline-新宋体-normal-r-normal-normal-14-*-96-96-c-*-iso10646-1" nil 'prepend)
-(set-fontset-font
- "fontset-chinese" 'han
- "-outline-新宋体-normal-r-normal-normal-14-*-96-96-c-*-iso10646-1" nil 'prepend)
-(set-fontset-font
- "fontset-chinese" 'cjk-misc
- "-outline-新宋体-normal-r-normal-normal-14-*-96-96-c-*-iso10646-1" nil 'prepend)
-(set-fontset-font
- "fontset-chinese" 'symbol
- "-outline-新宋体-normal-r-normal-normal-14-*-96-96-c-*-iso10646-1" nil 'prepend)
-(set-default-font "fontset-chinese")
+;;(create-fontset-from-fontset-spec
+;;  "-outline-Courier New-normal-r-normal-normal-13-97-96-96-c-*-fontset-chinese")
+;;(set-fontset-font
+;; "fontset-default" nil
+;; "-outline-新宋体-normal-r-normal-normal-14-*-96-96-c-*-iso10646-1" nil 'prepend)
+;;(set-fontset-font
+;; "fontset-chinese" 'kana
+;; "-outline-新宋体-normal-r-normal-normal-14-*-96-96-c-*-iso10646-1" nil 'prepend)
+;;(set-fontset-font
+;; "fontset-chinese" 'han
+;; "-outline-新宋体-normal-r-normal-normal-14-*-96-96-c-*-iso10646-1" nil 'prepend)
+;;(set-fontset-font
+;; "fontset-chinese" 'cjk-misc
+;; "-outline-新宋体-normal-r-normal-normal-14-*-96-96-c-*-iso10646-1" nil 'prepend)
+;;(set-fontset-font
+;; "fontset-chinese" 'symbol
+;; "-outline-新宋体-normal-r-normal-normal-14-*-96-96-c-*-iso10646-1" nil 'prepend)
+;;(set-default-font "fontset-chinese")
 
 ;===========================MS Windows环境下字体设置结束 =========================
 
@@ -221,6 +221,8 @@
 (load-library "~/emacs/config/developer")
 (load-library "~/emacs/config/markdown-conf")
 (load-library "~/emacs/config/python-conf")
+(load-library "~/emacs/config/lua-conf")
+(require 'taglist)
 ;; should be last, ensure key-define active by this config
 (load-library "~/emacs/config/keypad")
 

@@ -1,7 +1,7 @@
 ;;; emacs.el ---
 ;; -*- coding: utf-8 -*-
 ;; -*- mode: Emacs-Lisp -*-
-;; Time-stamp: <2012-10-26 16:55:04 Tanis Zhang>
+;; Time-stamp: <2013-03-04 17:21:32 Tanis Zhang>
 
 
 ;; 将软件包所在的路径加到 EMACS 的 load-path
@@ -223,10 +223,9 @@
 (load-library "~/emacs/config/python-conf")
 (load-library "~/emacs/config/lua-conf")
 (require 'taglist)
+(load-library "~/emacs/config/auto-complete-conf")
 ;; should be last, ensure key-define active by this config
 (load-library "~/emacs/config/keypad")
-
-
 
 ;;; w3m, seems useless
 ;(add-to-list 'exec-path "~/emacs/packages/w3mbin")

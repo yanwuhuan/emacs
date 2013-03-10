@@ -44,6 +44,8 @@
 
 
 ;; This uses a different header and footer than normal
+;;(setq muse-xhtml-header "~/emacs/content/wiki/header")
+(setq muse-xhtml-footer "~/emacs/content/wiki/footer.xhtml")
 
 
 ;; Define a draft style which provides extra space between sections
@@ -55,15 +57,23 @@
 
 ;; Here is my master project listing.
 (setq muse-project-alist
-      '(("website" ("~/emacs/content/wiki/web/" :default "index")
-         (:base "xhtml" :path "~/WebRoot/muse")))
+      '(("website"
+         ("~/emacs/content/wiki/web/" :default "index")
+         (:base "xhtml" :path "~/WebRoot/muse"))
+        ("mc"
+         ("~/emacs/content/wiki/mc/" :default "index")
+         (:base "xhtml" :path "~/WebRoot/mc"))
+        )
 )
-
 
 (setq muse-html-style-sheet "<link rel=\"stylesheet\" type=\"text/css\" charset=\"utf-8\" media=\"all\" href=\"../muse.css\" />")
 
 (setq muse-xhtml-style-sheet "<link rel=\"stylesheet\" type=\"text/css\" charset=\"utf-8\" media=\"all\" href=\"../muse.css\" />")
 
+;; 设置发布的 html 页面的字符集
+(setq muse-html-charset-default "utf-8")
+;; 设置源文件的字符集
+(setq muse-html-encoding-default "utf8")
 ;; Wiki settings
 
 ;;; Functions

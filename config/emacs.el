@@ -1,7 +1,7 @@
 ;;; emacs.el ---
 ;; -*- coding: utf-8 -*-
 ;; -*- mode: Emacs-Lisp -*-
-;; Time-stamp: <2013-03-04 17:21:32 Tanis Zhang>
+;; Time-stamp: <2013-03-08 18:30:09 Tanis Zhang>
 
 
 ;; 将软件包所在的路径加到 EMACS 的 load-path
@@ -19,97 +19,20 @@
 (add-hook 'write-file-hooks 'time-stamp)
 (setq time-stamp-format "%:y-%02m-%02d %02H:%02M:%02S Tanis Zhang")
 
+;;; 
+;;; color-theme
+(add-to-list 'load-path "~/emacs/packages/color-theme")
+(require 'color-theme)
+;;(eval-after-load "color-theme"
+;;  '(progn
+;;     (color-theme-initialize)
+;;     (color-theme-blackboard)))
+(color-theme-initialize)
+(load-library "~/emacs/config/color-theme-blackboard")
+(color-theme-blackboard)
 
 
-;============================ 语言环境字符集设置 =================================
-;;这一部份主要用在linux 环境下，windows下没什么作用
-;; (set-language-environment 'Chinese-GB)
-;; (set-keyboard-coding-system 'utf-8)
-;; (set-clipboard-coding-system 'utf-8)
-;; (set-terminal-coding-system 'utf-8)
-;; (set-buffer-file-coding-system 'utf-8)
-;; (set-default-coding-systems 'utf-8)
-;; (set-selection-coding-system 'utf-8)
-;; (modify-coding-system-alist 'process "*" 'utf-8)
-;; (setq default-process-coding-system '(utf-8 . utf-8))
-;; (setq-default pathname-coding-system 'utf-8)
-;; (set-file-name-coding-system 'utf-8)
-;; (setq ansi-color-for-comint-mode t) ;;处理shell-mode乱码,好像没作用
-
-;;;; Windows 下
-(set-language-environment 'Chinese-GB18030)
-;;(setq current-language-environment "UTF-8")
-;;(setq locale-coding-system 'utf-8)
-;;(set-terminal-coding-system 'utf-8)
-;;(set-keyboard-coding-system 'utf-8)
-;;(set-selection-coding-system 'utf-8)
-;;(prefer-coding-system 'utf-8)
-
-;=========================== 语言环境字符集设置结束 ===============================
-
-
-
-;============================ MS Windows环境下字体设置 ===========================
-;;(setq default-frame-alist
-;;(append
-;;  '((font . "fontset-chinese")) default-frame-alist))
-
-
-;;(create-fontset-from-fontset-spec
-;;  "-outline-Courier New-normal-r-normal-normal-13-97-96-96-c-*-fontset-chinese")
-;;(set-fontset-font
-;; "fontset-default" nil
-;; "-outline-新宋体-normal-r-normal-normal-14-*-96-96-c-*-iso10646-1" nil 'prepend)
-;;(set-fontset-font
-;; "fontset-chinese" 'kana
-;; "-outline-新宋体-normal-r-normal-normal-14-*-96-96-c-*-iso10646-1" nil 'prepend)
-;;(set-fontset-font
-;; "fontset-chinese" 'han
-;; "-outline-新宋体-normal-r-normal-normal-14-*-96-96-c-*-iso10646-1" nil 'prepend)
-;;(set-fontset-font
-;; "fontset-chinese" 'cjk-misc
-;; "-outline-新宋体-normal-r-normal-normal-14-*-96-96-c-*-iso10646-1" nil 'prepend)
-;;(set-fontset-font
-;; "fontset-chinese" 'symbol
-;; "-outline-新宋体-normal-r-normal-normal-14-*-96-96-c-*-iso10646-1" nil 'prepend)
-;;(set-default-font "fontset-chinese")
-
-;===========================MS Windows环境下字体设置结束 =========================
-
-
-;============================ Linux环境下字体设置 =================================
-
-;; (create-fontset-from-fontset-spec
-;; "-*-courier-medium-r-normal-*-14-*-*-*-*-*-fontset-courier")
-;; (set-default-font "fontset-courier")
-;; (setq default-frame-alist
-;; (append
-;; '((font . "fontset-courier")) default-frame-alist))
-
-;; (set-fontset-font
-;; "fontset-default" nil
-;; "-*-simsun-*-*-*-*-14-*-*-*-*-*-gb2312.1980-*" nil 'prepend)
-;; (set-fontset-font
-;; "fontset-courier" 'kana
-;; "-*-simsun-*-*-*-*-14-*-*-*-*-*-gbk-0" nil 'prepend)
-;; (set-fontset-font
-;; "fontset-courier" 'han
-;; "-*-simsun-*-*-*-*-14-*-*-*-*-*-gbk-0" nil 'prepend)
-;; (set-fontset-font
-;; "fontset-courier" 'cjk-misc
-;; "-*-simsun-*-*-*-*-14-*-*-*-*-*-gbk-0" nil 'prepend)
-
-;============================ Linux环境下字体设置结束 ==============================
-
-;;;;;;;;;;;;;;;;;;;;语言环境字体设置结束;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-
-
-;;解决中英文混排不能正确fill的问题,好像没什么用
-;; (put-charset-property 'chinese-cns11643-5 'nospace-between-words t)
-;; (put-charset-property 'chinese-cns11643-6 'nospace-between-words t)
-;; (put-charset-property 'chinese-cns11643-7 'nospace-between-words t)
-
+(load-library "~/emacs/config/font-encode")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;  设置窗口界面 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -131,8 +54,8 @@
 (display-time-mode 1);;启用时间显示设置，在minibuffer上面的那个杠上
 (setq display-time-24hr-format t);;时间使用24小时制
 (setq display-time-day-and-date t);;时间显示包括日期和具体时间
-(setq display-time-use-mail-icon t);;时间栏旁边启用邮件设置
-(setq display-time-interval 10);;时间的变化频率，单位多少来着？
+;;(setq display-time-use-mail-icon t);;时间栏旁边启用邮件设置
+;;(setq display-time-interval 10);;时间的变化频率，单位多少来着？
  
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;  显示时间设置结束  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -151,6 +74,9 @@
 (setq column-number-mode t)
 (setq line-number-mode t)
 
+;; Move mouse point if cursor close to it
+(mouse-avoidance-mode 'animate)
+
 ;;不要在鼠标点击的那个地方插入剪贴板内容。我不喜欢那样，经常把我的文档搞的一团糟。我觉得先用光标定位，然后鼠标中键点击要好的多。不管你的光标在文档的那个位置，或是在 minibuffer，鼠标中键一点击，X selection 的内容就被插入到那个位置。
 (setq mouse-yank-at-point t)
 
@@ -160,8 +86,8 @@
 ; Autofill in all modes;;
 (setq-default auto-fill-function 'do-auto-fill)
 
-;;把 fill-column 设为 80
-(setq default-fill-column 80)
+;;把 fill-column 设为 160
+(setq default-fill-column 160)
 
 ;;不用 TAB 字符来indent, 这会引起很多奇怪的错误。编辑 Makefile 的时候也不用担心，因为 makefile-mode 会把 TAB 键设置成真正的 TAB 字符，并且加亮显示的。
 (setq-default indent-tabs-mode nil)
@@ -206,6 +132,16 @@
 ;; 当浏览 man page 时，直接跳转到 man buffer。
 (setq Man-notify-method 'pushy)
 
+;; 用下面的来实现Alt-x，定义两个是为容错
+(global-set-key (kbd "C-x C-m") 'execute-extended-command)
+(global-set-key (kbd "C-c C-m") 'execute-extended-command)
+
+;; 用backward-kill-word删除词，backspace键反而更慢
+;; 另外多数unix shell也是这个操作，可以保持一致
+(global-set-key (kbd "C-w") 'backward-kill-word)
+;; C-w本来的映射定义到这里，定义两个是为容错
+(global-set-key (kbd "C-x C-k") 'kill-region)
+(global-set-key (kbd "C-c C-k") 'kill-region)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;定制操作习惯结束;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;; template files in ~/.template
@@ -223,6 +159,7 @@
 (load-library "~/emacs/config/python-conf")
 (load-library "~/emacs/config/lua-conf")
 (require 'taglist)
+;;(load-library "~/emacs/config/yasnippet-conf")
 (load-library "~/emacs/config/auto-complete-conf")
 ;; should be last, ensure key-define active by this config
 (load-library "~/emacs/config/keypad")
@@ -243,3 +180,14 @@
 (setq org-log-done 'time)
 
 
+;; http://blog.csdn.net/delphinew/article/details/1881858
+;byte编译一个目录下的所有el文件
+(defun byte-compile-directory (dir)
+  "byte compile a directory"
+  (interactive "D")
+  ;(message dir)
+  (mapcar #'(lambda(file)
+            (when (string-equal (file-name-extension  file) "el")
+              (byte-compile-file (concat dir file))))
+              ;(message (concat dir file))))
+              (directory-files dir)))

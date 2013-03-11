@@ -16,8 +16,8 @@
 
 (global-set-key [f3] 'repeat-complex-command)
 
-;; 跳转到 Emacs 的另一个buffer窗口
-(global-set-key [f4] 'other-window)
+;; 打开buffer的列表
+(global-set-key [f4] 'buffer-menu)
 
 ;;目的是开一个shell的小buffer，用于更方便地测试程序(也就是运行程序了)，我经常会用到。
 ;;f8就是另开一个buffer然后打开shell，C-f8则是在当前的buffer打开shell

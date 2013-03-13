@@ -1,7 +1,7 @@
 ;;; emacs.el ---
 ;; -*- coding: utf-8 -*-
 ;; -*- mode: Emacs-Lisp -*-
-;; Time-stamp: <2013-03-08 18:30:09 Tanis Zhang>
+;; Time-stamp: <2013-03-13 11:27:17 Tanis Zhang>
 
 
 ;; 将软件包所在的路径加到 EMACS 的 load-path
@@ -37,13 +37,15 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;  设置窗口界面 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;取消滚动栏
-(set-scroll-bar-mode nil)
+(scroll-bar-mode 0)
+;;(set-scroll-bar-mode nil)
 
 ;;设置滚动栏在窗口右侧，而默认是在左侧
 ;;(customize-set-variable 'scroll-bar-mode 'right))
 
 ;;取消工具栏
-(tool-bar-mode nil)
+(tool-bar-mode 0)
+
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;  设置界面结束  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -70,12 +72,15 @@
 ;; 改变 Emacs 固执的要你回答 yes 的行为。按 y 或空格键表示 yes，n 表示 no。
 (fset 'yes-or-no-p 'y-or-n-p)
 
+;; 语法高亮。除 shell-mode 和 text-mode 之外的模式中使用语法高亮。
+(setq font-lock-maximum-decoration t)
+(setq font-lock-global-modes '(not shell-mode text-mode))
+(setq font-lock-verbose t)
+(setq font-lock-maximum-size '((t . 1048576) (vm-mode . 5250000)))
+
 ;;显示行列号
 (setq column-number-mode t)
 (setq line-number-mode t)
-
-;; Move mouse point if cursor close to it
-(mouse-avoidance-mode 'animate)
 
 ;;不要在鼠标点击的那个地方插入剪贴板内容。我不喜欢那样，经常把我的文档搞的一团糟。我觉得先用光标定位，然后鼠标中键点击要好的多。不管你的光标在文档的那个位置，或是在 minibuffer，鼠标中键一点击，X selection 的内容就被插入到那个位置。
 (setq mouse-yank-at-point t)
@@ -94,31 +99,83 @@
 (setq default-tab-width 4)
 (setq tab-stop-list ())
 
+;;设置 sentence-end 可以识别中文标点。不用在 fill 时在句号后插入两个空格。
+(setq sentence-end "\\([。！？]\\|……\\|[.?!][]\"')}]*\\($\\|[ \t]\\)\\)[ \t\n]*")
+(setq sentence-end-double-space nil)
 ;;可以递归的使用 minibuffer
 (setq enable-recursive-minibuffers t)
+
+;;防止页面滚动时跳动， scroll-margin 3 可以在靠近屏幕边沿3行时就开始滚动，可以很好的看到上下文。
+(setq scroll-margin 3  scroll-conservatively 10000)
 
 ;;设置缺省主模式是text，,并进入auto-fill次模式.而不是基本模式fundamental-mode
 (setq default-major-mode 'text-mode)
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
 
 ;;括号匹配时可以高亮显示另外一边的括号，但光标不会烦人的跳到另一个括号处。
-(setq show-paren-mode t) ;;打开括号匹配显示模式
+(show-paren-mode t)
+;;(setq show-paren-mode t) 
 (setq show-paren-style 'parenthesis)
+
+;;光标靠近鼠标指针时，让鼠标指针自动让开，别挡住视线。
+(setq mouse-avoidance-mode 'animate)
 
 ;;在标题栏显示buffer的名字，而不是 emacs@wangyin.com 这样没用的提示。
 (setq frame-title-format "%b@emacs")
 
+;; 当有两个文件名相同的缓冲时，使用前缀的目录名做 buffer 名字，不用原来的foobar<?> 形式。
+(setq uniquify-buffer-name-style 'forward);;好像没起作用
+
 ;;让 Emacs 可以直接打开和显示图片。
 (setq auto-image-file-mode t)
+;;; (auto-image-file-mode t)
 
 ;打开压缩文件时自动解压缩。
 ;(auto-compression-mode 1)  
 
 ;;进行语法加亮。
 (setq global-font-lock-mode t)
+;;; Also highlight parens   
+(setq show-paren-delay 0  
+      show-paren-style 'parenthesis)  
+
+;; 在行首 C-k 时，同时删除该行。
+(setq-default kill-whole-line t)
+
+;;当你在shell、telnet、w3m等模式下时，必然碰到过要输入密码的情况,此时加密显出你的密码
+(add-hook 'comint-output-filter-functions
+      'comint-watch-for-password-prompt)
+;;启用版本控制，即可以备份多次
+;(setq version-control t)
+;;备份最原始的版本两次，及第一次编辑前的文档，和第二次编辑前的文档
+;(setq kept-old-versions 2)
+;;备份最新的版本1次，理解同上
+;(setq kept-new-versions 1)
+;;删掉不属于以上3中版本的版本
+;(setq delete-old-versions t)
+;;设置备份文件的路径
+;(setq backup-directory-alist '(("." . "~/backups")))
+;(setq backup-by-copying t);;备份设置方法，直接拷贝
+;; Emacs 中，改变文件时，默认都会产生备份文件(以 ~ 结尾的文件)。可以完全去掉
+;; (并不可取)，也可以制定备份的方式。这里采用的是，把所有的文件备份都放在一
+;; 个固定的地方("~/backups")。对于每个备份文件，保留最原始的两个版本和最新的
+;; 1个版本。并且备份的时候，备份文件是复本，而不是原件。
+
+(setq auto-save-mode nil)
 
 ;; 不生成临时文件
 (setq-default make-backup-files nil)
+
+;允许屏幕左移
+(put 'scroll-left 'disabled nil)
+;允许屏幕右移
+(put 'scroll-right 'disabled nil)    
+(put 'set-goal-column 'disabled nil)
+(put 'narrow-to-region 'disabled nil)
+(put 'upcase-region 'disabled nil)
+(put 'downcase-region 'disabled nil)
+(put 'LaTeX-hide-environment 'disabled nil)
+;;把这些缺省禁用的功能打开。
 
 ;;允许emacs和外部其他程序的粘贴
 (setq x-select-enable-clipboard t)
@@ -129,8 +186,34 @@
 ;; 自动的在文件末增加一新行
 (setq require-final-newline t)
 
+;;Non-nil if Transient-Mark mode is enabled.
+(setq-default transient-mark-mode t)
+
+;; 当光标在行尾上下移动的时候，始终保持在行尾。
+(setq track-eol t)
+
 ;; 当浏览 man page 时，直接跳转到 man buffer。
 (setq Man-notify-method 'pushy)
+
+;;允许临时设置标记，高亮显示要拷贝的区域
+(transient-mark-mode t)
+
+;; Open file more easy
+(require 'ido)
+(ido-mode t)
+;;可以显示所有目录以及文件
+(setq speedbar-show-unknown-files t)
+;;不自动刷新，手动 g 刷新
+(setq dframe-update-speed nil)
+(setq speedbar-update-flag nil)
+;;不使用 image 的方式
+(setq speedbar-use-images nil)
+(setq speedbar-verbosity-level 0)
+
+
+;;让 dired 可以递归的拷贝和删除目录。
+(setq dired-recursive-copies 'top)
+(setq dired-recursive-deletes 'top)
 
 ;; 用下面的来实现Alt-x，定义两个是为容错
 (global-set-key (kbd "C-x C-m") 'execute-extended-command)
@@ -144,11 +227,12 @@
 (global-set-key (kbd "C-c C-k") 'kill-region)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;定制操作习惯结束;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;; template files in ~/.template
+
+;===================== template设置 =================================
 (require 'template)
 (template-initialize)
 ;;; >>>AUTHOR<<< is user-mail-address
-
+;===================== template设置结束===============================
 
 (load-library "~/emacs/config/muse-init")
 (load-library "~/emacs/config/calendar")

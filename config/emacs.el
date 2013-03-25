@@ -1,7 +1,7 @@
 ;;; emacs.el ---
 ;; -*- coding: utf-8 -*-
 ;; -*- mode: Emacs-Lisp -*-
-;; Time-stamp: <2013-03-13 11:27:17 Tanis Zhang>
+;; Time-stamp: <2013-03-25 11:07:06 Tanis Zhang>
 
 
 ;; 将软件包所在的路径加到 EMACS 的 load-path
@@ -231,6 +231,10 @@
 ;===================== template设置 =================================
 (require 'template)
 (template-initialize)
+;; ido-mode skip find-file-not-found, so should be add this
+;; http://linux.chinaunix.net/techdoc/system/2006/07/22/936546.shtml
+(add-to-list 'template-find-file-commands
+         'ido-exit-minibuffer)
 ;;; >>>AUTHOR<<< is user-mail-address
 ;===================== template设置结束===============================
 
@@ -275,3 +279,6 @@
               (byte-compile-file (concat dir file))))
               ;(message (concat dir file))))
               (directory-files dir)))
+
+;; for find
+(setq find-program "gfind")

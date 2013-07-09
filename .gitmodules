@@ -1,3 +1,6 @@
 [submodule "packages/lua-mode"]
 	path = packages/lua-mode
 	url = https://github.com/immerrr/lua-mode.git
+[submodule "content"]
+	path = content
+	url = git@bitbucket.org:Tanis/emacs_content.git

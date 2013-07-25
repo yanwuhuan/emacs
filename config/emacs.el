@@ -1,7 +1,7 @@
 ;;; emacs.el ---
 ;; -*- coding: utf-8 -*-
 ;; -*- mode: Emacs-Lisp -*-
-;; Time-stamp: <2013-03-25 11:07:06 Tanis Zhang>
+;; Time-stamp: <2013-07-25 18:28:08 Tanis Zhang>
 
 
 ;; 将软件包所在的路径加到 EMACS 的 load-path
@@ -246,6 +246,7 @@
 (load-library "~/emacs/config/markdown-conf")
 (load-library "~/emacs/config/python-conf")
 (load-library "~/emacs/config/lua-conf")
+(load-library "~/emacs/config/scheme-conf")
 (require 'taglist)
 ;;(load-library "~/emacs/config/yasnippet-conf")
 (load-library "~/emacs/config/auto-complete-conf")

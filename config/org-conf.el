@@ -1,7 +1,7 @@
 ;;; org-conf.el --- 
 ;; -*- coding: utf-8 -*-
 ;; -*- mode: Emacs-Lisp -*-
-;; Time-stamp: <2013-03-05 09:28:33 Tanis Zhang>
+;; Time-stamp: <2013-09-17 18:15:29 Tanis Zhang>
 
 ;; http://emacser.com/org-mode.htm
 ;; http://blog.csdn.net/meteor1113/article/details/4395673
@@ -17,6 +17,25 @@
 ;;(global-set-key "\C-ca" 'org-agenda)
 ;;(global-set-key "\C-cb" 'org-iswitchb)
 
-(load "~/emacs/content/org/note-dir-init")
+;;(load "~/emacs/content/org/note-dir-init")
+
+(setq org-hide-leading-stars t)
+(define-key global-map "\C-ca" 'org-agenda)
+(setq org-log-done 'time)
+
+
+;; all .org opened by indent mode
+(setq org-startup-indented t)
+
+;; set a project to publish
+(setq org-publish-project-alist
+     '(("org"
+        :base-directory "~/emacs/content/org/"
+        :publishing-directory "~/WebRoot/org-mode"
+        :section-numbers nil
+        :table-of-contents 3
+        :style "<link rel=\"stylesheet\"
+               href=\"../org.css\"
+               type=\"text/css\"/>")))
 
 ;;; org-conf.el ends here

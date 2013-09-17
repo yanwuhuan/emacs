@@ -1,7 +1,7 @@
 ;;; emacs.el ---
 ;; -*- coding: utf-8 -*-
 ;; -*- mode: Emacs-Lisp -*-
-;; Time-stamp: <2013-07-25 18:28:08 Tanis Zhang>
+;; Time-stamp: <2013-09-17 18:05:08 Tanis Zhang>
 
 
 ;; 将软件包所在的路径加到 EMACS 的 load-path
@@ -247,6 +247,7 @@
 (load-library "~/emacs/config/python-conf")
 (load-library "~/emacs/config/lua-conf")
 (load-library "~/emacs/config/scheme-conf")
+(load-library "~/emacs/config/org-conf")
 (require 'taglist)
 ;;(load-library "~/emacs/config/yasnippet-conf")
 (load-library "~/emacs/config/auto-complete-conf")
@@ -262,11 +263,6 @@
 ;(setq w3m-use-cookies t)
 ;(setq w3m-home-page "")     
 
-
-;;; org-mode
-(setq org-hide-leading-stars t)
-(define-key global-map "\C-ca" 'org-agenda)
-(setq org-log-done 'time)
 
 
 ;; http://blog.csdn.net/delphinew/article/details/1881858

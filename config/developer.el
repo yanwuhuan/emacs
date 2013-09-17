@@ -48,5 +48,5 @@
   (switch-to-buffer (make-comint "perl" "perl" nil "-d -e''")))
 
 ;; for scheme
-;(setq scheme-program-name "mzscheme.exe -i")
+;;(setq scheme-program-name "mzscheme.exe -i")
 (setq scheme-program-name "D:/MyHome/Apps/Develop/ChezScheme/bin/ti3nt/petite.exe")

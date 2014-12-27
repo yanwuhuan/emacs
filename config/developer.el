@@ -50,3 +50,9 @@
 ;; for scheme
 ;;(setq scheme-program-name "mzscheme.exe -i")
 (setq scheme-program-name "D:/MyHome/Apps/Develop/ChezScheme/bin/ti3nt/petite.exe")
+
+;; for cscope
+(add-hook 'c-mode-common-hook  
+          '(lambda ()  
+             (require 'xcscope)))
+(setq cscope-do-not-update-database t)

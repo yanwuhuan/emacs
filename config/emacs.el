@@ -247,7 +247,7 @@
 (load-library "~/emacs/config/python-conf")
 (load-library "~/emacs/config/lua-conf")
 (load-library "~/emacs/config/scheme-conf")
-(load-library "~/emacs/config/org-conf")
+;;(load-library "~/emacs/config/org-conf")
 (require 'taglist)
 ;;(load-library "~/emacs/config/yasnippet-conf")
 (load-library "~/emacs/config/auto-complete-conf")

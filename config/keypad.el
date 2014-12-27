@@ -47,7 +47,8 @@
 (global-set-key [f11] 'calendar)
 
 ;;设置F12 快速察看日程安排
-(global-set-key [f12] 'list-bookmarks)
+;(global-set-key [f12] 'list-bookmarks)
+(global-set-key [f12] 'org-remember)
 
 ;;设置M-g为goto-line
 (global-set-key (kbd "M-g") 'goto-line)

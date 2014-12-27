@@ -1,7 +1,7 @@
 ;;; font-encode.el --- 
 ;; -*- coding: utf-8 -*-
 ;; -*- mode: Emacs-Lisp -*-
-;; Time-stamp: <2013-03-08 14:40:22 Tanis Zhang>
+;; Time-stamp: <2014-12-13 14:34:48 Tanis Zhang>
 
 
 ;============================ ”Ô—‘ª∑æ≥◊÷∑˚ºØ…Ë÷√ =================================
@@ -105,6 +105,5 @@
 
 ;;;(set-default-font "-outline-YaHei Consolas Hybrid-normal-normal-normal-sans-19-*-*-*-p-*-iso8859-1")
 (custom-set-faces
- '(default ((t (:family "YaHei Consolas Hybrid" :foundry "outline" :slant normal :weight normal :height 98 :width normal)))))
-
+ '(default ((t (:family "Œ¢»Ì—≈∫⁄" :foundry "outline" :slant normal :weight normal :height 118 :width normal)))))
 ;;; font-encode.el ends here

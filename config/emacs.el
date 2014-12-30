@@ -7,8 +7,10 @@
 ;; 将软件包所在的路径加到 EMACS 的 load-path
 (add-to-list 'load-path "~/emacs/packages/others")
 
-(load "gnuserv")
-(gnuserv-start)
+
+(setq server-auth-dir "D:/MyHome/Data/tanis/")
+(setq server-name "emacs-server-file")
+(server-start)
 ;;设置有用的个人信息,这在很多地方有用。
 (setq user-full-name "Zhang Tanis")
 (setq user-mail-address "tanis.zhang@gmail.com")

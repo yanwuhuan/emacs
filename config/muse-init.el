@@ -15,8 +15,8 @@
 ;;; Setup
 
 ;; Add to load path
-(add-to-list 'load-path "~/emacs/packages/muse/lisp")
-(add-to-list 'load-path "~/emacs/packages/muse/experimental")
+(add-to-list 'load-path "~/.emacs/packages/muse/lisp")
+(add-to-list 'load-path "~/.emacs/packages/muse/experimental")
 
 ;; Initialize
 (require 'outline)       ; I like outline-style faces
@@ -44,8 +44,8 @@
 
 
 ;; This uses a different header and footer than normal
-;;(setq muse-xhtml-header "~/emacs/content/wiki/header")
-(setq muse-xhtml-footer "~/emacs/content/wiki/footer.xhtml")
+;;(setq muse-xhtml-header "~/.emacs/content/wiki/header")
+(setq muse-xhtml-footer "~/.emacs/content/wiki/footer.xhtml")
 
 
 ;; Define a draft style which provides extra space between sections
@@ -58,10 +58,10 @@
 ;; Here is my master project listing.
 (setq muse-project-alist
       '(("website"
-         ("~/emacs/content/wiki/web/" :default "index")
+         ("~/.emacs/content/wiki/web/" :default "index")
          (:base "xhtml" :path "~/WebRoot/muse"))
         ("mc"
-         ("~/emacs/content/wiki/mc/" :default "index")
+         ("~/.emacs/content/wiki/mc/" :default "index")
          (:base "xhtml" :path "~/WebRoot/mc"))
         )
 )

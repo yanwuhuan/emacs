@@ -99,7 +99,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;  设置日记 ;;;;;;; ;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;(setq diary-file "~/diary");; 默认的日记文件
-(setq diary-file "~/emacs/content/diary")
+(setq diary-file "~/.emacs/content/diary")
 (setq diary-mail-addr "tanis.zhang@gmail.com")
 (add-hook 'diary-hook 'appt-make-list)
 ;;当你创建了一个'~/diary'文件，你就可以使用calendar去查看里面的内容。你可以查看当天的事件，相关命令如下 ：

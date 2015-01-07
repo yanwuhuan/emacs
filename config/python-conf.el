@@ -1,6 +1,6 @@
 ;;; http://hi.baidu.com/4shop/blog/item/426316f7371de52a720eecfc.html
-(add-to-list 'load-path "~/emacs/packages/python-mode")
-;(add-to-list 'load-path "~/emacs/packages/python-mode/completion")
+(add-to-list 'load-path "~/.emacs/packages/python-mode")
+;(add-to-list 'load-path "~/.emacs/packages/python-mode/completion")
 
 ;(require 'python-mode)
 ;(require 'pymacs)

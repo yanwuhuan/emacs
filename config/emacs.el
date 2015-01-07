@@ -5,7 +5,7 @@
 
 
 ;; 将软件包所在的路径加到 EMACS 的 load-path
-(add-to-list 'load-path "~/emacs/packages/others")
+(add-to-list 'load-path "~/.emacs/packages/others")
 
 
 (setq server-auth-dir "D:/MyHome/Data/tanis/")
@@ -23,18 +23,18 @@
 
 ;;; 
 ;;; color-theme
-(add-to-list 'load-path "~/emacs/packages/color-theme")
+(add-to-list 'load-path "~/.emacs/packages/color-theme")
 (require 'color-theme)
 ;;(eval-after-load "color-theme"
 ;;  '(progn
 ;;     (color-theme-initialize)
 ;;     (color-theme-blackboard)))
 (color-theme-initialize)
-(load-library "~/emacs/config/color-theme-blackboard")
+(load-library "~/.emacs/config/color-theme-blackboard")
 (color-theme-blackboard)
 
 
-(load-library "~/emacs/config/font-encode")
+(load-library "~/.emacs/config/font-encode")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;  设置窗口界面 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -240,25 +240,25 @@
 ;;; >>>AUTHOR<<< is user-mail-address
 ;===================== template设置结束===============================
 
-(load-library "~/emacs/config/muse-init")
-(load-library "~/emacs/config/calendar")
-(load-library "~/emacs/config/tabbar-conf")
-(load-library "~/emacs/config/ssh-conf")
-(load-library "~/emacs/config/developer")
-(load-library "~/emacs/config/markdown-conf")
-(load-library "~/emacs/config/python-conf")
-(load-library "~/emacs/config/lua-conf")
-(load-library "~/emacs/config/scheme-conf")
-;;(load-library "~/emacs/config/org-conf")
+(load-library "~/.emacs/config/muse-init")
+(load-library "~/.emacs/config/calendar")
+(load-library "~/.emacs/config/tabbar-conf")
+(load-library "~/.emacs/config/ssh-conf")
+(load-library "~/.emacs/config/developer")
+(load-library "~/.emacs/config/markdown-conf")
+(load-library "~/.emacs/config/python-conf")
+(load-library "~/.emacs/config/lua-conf")
+(load-library "~/.emacs/config/scheme-conf")
+;;(load-library "~/.emacs/config/org-conf")
 (require 'taglist)
-;;(load-library "~/emacs/config/yasnippet-conf")
-(load-library "~/emacs/config/auto-complete-conf")
+;;(load-library "~/.emacs/config/yasnippet-conf")
+(load-library "~/.emacs/config/auto-complete-conf")
 ;; should be last, ensure key-define active by this config
-(load-library "~/emacs/config/keypad")
+(load-library "~/.emacs/config/keypad")
 
 ;;; w3m, seems useless
-;(add-to-list 'exec-path "~/emacs/packages/w3mbin")
-;(add-to-list 'load-path "~/emacs/packages/emacs-w3m")
+;(add-to-list 'exec-path "~/.emacs/packages/w3mbin")
+;(add-to-list 'load-path "~/.emacs/packages/emacs-w3m")
 ;(require 'w3m-load)
 ;(setq w3m-use-favicon nil)
 ;(setq w3m-command-arguments '("-cookie" "-F"))

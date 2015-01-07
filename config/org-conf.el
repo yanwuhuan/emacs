@@ -17,7 +17,7 @@
 ;;(global-set-key "\C-ca" 'org-agenda)
 ;;(global-set-key "\C-cb" 'org-iswitchb)
 
-;;(load "~/emacs/content/org/note-dir-init")
+;;(load "~/.emacs/content/org/note-dir-init")
 
 (setq org-hide-leading-stars t)
 (define-key global-map "\C-ca" 'org-agenda)
@@ -30,7 +30,7 @@
 ;; set a project to publish
 (setq org-publish-project-alist
      '(("org"
-        :base-directory "~/emacs/content/org/"
+        :base-directory "~/.emacs/content/org/"
         :publishing-directory "~/WebRoot/org-mode"
         :section-numbers nil
         :table-of-contents 3

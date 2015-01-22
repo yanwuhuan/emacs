@@ -1,7 +1,7 @@
 ;;; emacs.el ---
 ;; -*- coding: utf-8 -*-
 ;; -*- mode: Emacs-Lisp -*-
-;; Time-stamp: <2013-09-17 18:05:08 Tanis Zhang>
+;; Time-stamp: <2015-01-22 16:50:51 Tanis Zhang>
 
 
 ;; 将软件包所在的路径加到 EMACS 的 load-path
@@ -249,6 +249,7 @@
 (load-library "~/.emacs/config/python-conf")
 (load-library "~/.emacs/config/lua-conf")
 (load-library "~/.emacs/config/scheme-conf")
+(load-library "~/.emacs/config/cmode-conf")
 ;;(load-library "~/.emacs/config/org-conf")
 (require 'taglist)
 ;;(load-library "~/.emacs/config/yasnippet-conf")

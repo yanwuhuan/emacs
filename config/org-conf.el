@@ -1,7 +1,7 @@
 ;;; org-conf.el --- 
 ;; -*- coding: utf-8 -*-
 ;; -*- mode: Emacs-Lisp -*-
-;; Time-stamp: <2013-09-17 18:15:29 Tanis Zhang>
+;; Time-stamp: <2015-02-05 16:15:12 Tanis Zhang>
 
 ;; http://emacser.com/org-mode.htm
 ;; http://blog.csdn.net/meteor1113/article/details/4395673
@@ -29,8 +29,8 @@
 
 ;; set a project to publish
 (setq org-publish-project-alist
-     '(("org"
-        :base-directory "~/.emacs/content/org/"
+     '(("orgdoc"
+        :base-directory "~/.emacs/content/orgdoc/"
         :publishing-directory "~/WebRoot/org-mode"
         :section-numbers nil
         :table-of-contents 3
